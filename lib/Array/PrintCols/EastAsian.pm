@@ -12,7 +12,7 @@ use Text::VisualWidth::PP;
 $Text::VisualWidth::PP::EastAsian = 1;
 use parent qw/ Exporter /;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 our @EXPORT    = qw/ format_cols print_cols pretty_print_cols /;
 our @EXPORT_OK = qw/ _max _min _validate _align /;
@@ -92,9 +92,9 @@ sub print_cols {
         $column = _max( 1, int 1 + ( $args->{width} - $element_width ) / ( $element_width + $gap ) );
         if ( exists $args->{column} ) { $column = _min( $args->{column}, $column ); }
     }
-    if ( !$column ) { $column = $#{$formatted_array}; }
+    if ( !$column ) { $column = $#{$formatted_array} + 1; }
 
-    my $str = q{};
+    my ( $str, $encoded_str ) = q{};
     for ( 0 .. $#{$formatted_array} ) {
         if ( $_ % $column ) {
             $str = $str . q{ } x $gap;
@@ -105,7 +105,8 @@ sub print_cols {
         $str = $str . $formatted_array->[$_];
     }
     $str = $str . "\n";
-    print "encode $encode, $str";
+    $encoded_str = encode $encode, $str;
+    print $encoded_str;
     return;
 }
 
@@ -130,7 +131,7 @@ Array::PrintCols::EastAsian - Print or format space-fill array elements with ali
 
 =head1 VERSION
 
-This document describes Array::PrintCols::EastAsian version 0.01.
+This document describes Array::PrintCols::EastAsian version 0.02.
 
 =head1 SYNOPSIS
 
