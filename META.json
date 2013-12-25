@@ -61,7 +61,7 @@
    "provides" : {
       "Array::PrintCols::EastAsian" : {
          "file" : "lib/Array/PrintCols/EastAsian.pm",
-         "version" : "0.04"
+         "version" : "0.05"
       }
    },
    "release_status" : "stable",
@@ -75,5 +75,5 @@
          "web" : "https://github.com/zoncoen/Array-PrintCols-EastAsian"
       }
    },
-   "version" : "0.04"
+   "version" : "0.05"
 }
