@@ -29,7 +29,7 @@ no_index:
 provides:
   Array::PrintCols::EastAsian:
     file: lib/Array/PrintCols/EastAsian.pm
-    version: 0.05
+    version: 0.06
 requires:
   Carp: 0
   Data::Validator: 0
@@ -41,4 +41,4 @@ resources:
   bugtracker: https://github.com/zoncoen/Array-PrintCols-EastAsian/issues
   homepage: https://github.com/zoncoen/Array-PrintCols-EastAsian
   repository: git://github.com/zoncoen/Array-PrintCols-EastAsian.git
-version: 0.05
+version: 0.06
