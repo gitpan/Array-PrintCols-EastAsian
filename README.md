@@ -5,7 +5,7 @@ Array::PrintCols::EastAsian - Print or format space-fill array elements with ali
 
 # VERSION
 
-This document describes Array::PrintCols::EastAsian version 0.06.
+This document describes Array::PrintCols::EastAsian version 0.07.
 
 # SYNOPSIS
 
@@ -19,10 +19,10 @@ This document describes Array::PrintCols::EastAsian version 0.06.
     # get an array which has space-fill elements
     my @formatted_array = @{ format_cols( \@motorcycles ) };
 
-    # print array elements with aligning vertivally
+    # print array elements with aligning vertically
     print_cols( \@motorcycles );
 
-    # print array elements with aligning vertivally and fitting the window width like Linux "ls" command
+    # print array elements with aligning vertically and fitting the window width like Linux "ls" command
     pretty_print_cols( \@motorcycles );
 
 # DESCRIPTION

@@ -12,7 +12,7 @@ use Text::VisualWidth::PP;
 $Text::VisualWidth::PP::EastAsian = 1;
 use parent qw/ Exporter /;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 our @EXPORT    = qw/ format_cols print_cols pretty_print_cols /;
 our @EXPORT_OK = qw/ _max _min _validate _align /;
@@ -122,7 +122,7 @@ sub pretty_print_cols {
     else {
         $terminal_width = (GetTerminalSize)[0];
     }
-    if ( $terminal_width =~ /^\d+$/ ) {
+    if ( $terminal_width =~ /^\d+$/ && $terminal_width != 0 ) {
         print_cols( $array, { 'gap' => $gap, 'width' => $terminal_width, 'align' => $align, 'encode' => $encode } );
     }
     else {
@@ -142,7 +142,7 @@ Array::PrintCols::EastAsian - Print or format space-fill array elements with ali
 
 =head1 VERSION
 
-This document describes Array::PrintCols::EastAsian version 0.06.
+This document describes Array::PrintCols::EastAsian version 0.07.
 
 =head1 SYNOPSIS
 
@@ -156,10 +156,10 @@ This document describes Array::PrintCols::EastAsian version 0.06.
     # get an array which has space-fill elements
     my @formatted_array = @{ format_cols( \@motorcycles ) };
 
-    # print array elements with aligning vertivally
+    # print array elements with aligning vertically
     print_cols( \@motorcycles );
 
-    # print array elements with aligning vertivally and fitting the window width like Linux "ls" command
+    # print array elements with aligning vertically and fitting the window width like Linux "ls" command
     pretty_print_cols( \@motorcycles );
 
 =head1 DESCRIPTION
